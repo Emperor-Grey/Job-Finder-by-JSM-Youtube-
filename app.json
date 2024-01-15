@@ -8,6 +8,27 @@
       "expo-router"
     ],
     "name": "Job-Finder",
-    "slug": "Job-Finder"
+    "slug": "job-finder-by-jsm-youtube",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "70e328dc-b968-4838-85cc-f1885c5c2cd6"
+      }
+    },
+    "owner": "king_grey",
+    "android": {
+      "package": "com.king_grey.jobfinderbyjsmyoutube"
+    },
+    "ios": {
+      "bundleIdentifier": "ios-Job-Finder"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/70e328dc-b968-4838-85cc-f1885c5c2cd6"
+    }
   }
 }
