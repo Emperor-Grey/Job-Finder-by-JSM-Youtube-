@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native';
 import { View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import {
-  NearbyJobCard,
+  Nearbyjobs,
   Popularjobs,
   ScreenHeaderBtn,
   Welcome,
@@ -34,7 +34,7 @@ const Home = () => {
         <View style={{ flex: 1, padding: SIZES.medium }}>
           <Welcome />
           <Popularjobs />
-          <NearbyJobCard />
+          <Nearbyjobs />
         </View>
       </ScrollView>
     </SafeAreaView>

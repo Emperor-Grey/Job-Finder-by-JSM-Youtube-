@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ActivityIndicator,
   FlatList,
@@ -17,9 +17,12 @@ const Popularjobs = () => {
   const router = useRouter();
   const { data, isLoading, error } = useFetch('search', {
     query: 'React developer',
-    page: 1,
     num_pages: 1,
   });
+
+  const [selectedJob, setSelectedJob] = useState();
+
+  const handleCardPress = (item) => {};
 
   return (
     <View style={styles.container}>
@@ -39,7 +42,11 @@ const Popularjobs = () => {
           <FlatList
             data={data}
             renderItem={({ item }) => (
-              <PopularJobCard item={item} handleCardPress={() => {}} />
+              <PopularJobCard
+                item={item}
+                selectedJob={selectedJob}
+                handleCardPress={handleCardPress}
+              />
             )}
             keyExtractor={(item) => item?.job_id}
             contentContainerStyle={{ columnGap: SIZES.medium }}
