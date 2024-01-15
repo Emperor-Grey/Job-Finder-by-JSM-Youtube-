@@ -56,6 +56,8 @@ const JobDetails = () => {
 
       <>
         <ScrollView
+          nestedScrollEnabled
+          alwaysBounceVertical
           showsVerticalScrollIndicator={false}
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
