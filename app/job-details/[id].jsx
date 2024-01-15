@@ -11,6 +11,7 @@ import {
 import {
   Company,
   JobAbout,
+  JobFooter,
   JobTabs,
   ScreenHeaderBtn,
   Specifics,
@@ -46,7 +47,12 @@ const JobDetails = () => {
           />
         );
       case 'Responsibilities':
-        break;
+        return (
+          <Specifics
+            title="Responsibilities"
+            points={data[0].job_highlights?.Responsibilities ?? ['N/A']}
+          />
+        );
       default:
         break;
     }
@@ -113,6 +119,13 @@ const JobDetails = () => {
             </View>
           )}
         </ScrollView>
+
+        <JobFooter
+          url={
+            data[0]?.job_google_link ??
+            'https://careers.google.com/jobs/results'
+          }
+        />
       </>
     </SafeAreaView>
   );
