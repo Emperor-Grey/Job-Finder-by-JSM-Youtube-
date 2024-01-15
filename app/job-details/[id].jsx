@@ -8,11 +8,17 @@ import {
   Text,
   View,
 } from 'react-native';
-import { Company, JobTabs, ScreenHeaderBtn } from '../../components';
+import {
+  Company,
+  JobAbout,
+  JobTabs,
+  ScreenHeaderBtn,
+  Specifics,
+} from '../../components';
 import { COLORS, SIZES, icons } from '../../constants';
 import useFetch from '../../hook/useFetch';
 
-const tabs = ['About', 'Qualifications', 'Specifics', 'Responsibilities'];
+const tabs = ['About', 'Qualifications', 'Responsibilities'];
 
 const JobDetails = () => {
   const router = useRouter();
@@ -25,6 +31,26 @@ const JobDetails = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const onRefresh = () => {};
+
+  const displayTabContent = () => {
+    switch (activeTab) {
+      case 'About':
+        return (
+          <JobAbout info={data[0].job_description ?? 'No Data Provided'} />
+        );
+      case 'Qualifications':
+        return (
+          <Specifics
+            title="Qualifications"
+            points={data[0].job_highlights?.Qualifications ?? ['N/A']}
+          />
+        );
+      case 'Responsibilities':
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
@@ -82,6 +108,8 @@ const JobDetails = () => {
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
               />
+
+              {displayTabContent()}
             </View>
           )}
         </ScrollView>
